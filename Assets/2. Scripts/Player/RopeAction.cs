@@ -13,11 +13,15 @@ public class RopeAction : MonoBehaviour
     //메인 카메라
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float _hookSpeed;
+    [SerializeField] private PlayerMove _playerMove;
     private RaycastHit _raycastHit;
     private LineRenderer _lineRenderer;
     private bool _isGrappling;
     private SpringJoint _springJoint;
     private Rigidbody _rigidbody;
+    
+    public bool IsGrappling => _isGrappling;
+    
     
     private void Start()
     {
@@ -116,8 +120,12 @@ public class RopeAction : MonoBehaviour
     //우클릭 시 개구리가 혀의 연결점 끝으로 힘을 받아서 날아감
     private void BoostToEndOfRope()
     {
-        var pos = _raycastHit.point;
-        _rigidbody.AddForce(_raycastHit.point * _hookSpeed, ForceMode.Impulse);
+        if (!_playerMove.IsGround && _isGrappling)
+        {
+
+            Vector3 direction = (_raycastHit.point - _player.position).normalized;
+            _rigidbody.AddForce(direction * _hookSpeed, ForceMode.Impulse);
+        }
     }
 
     #endregion

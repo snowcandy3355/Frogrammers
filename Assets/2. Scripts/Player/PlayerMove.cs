@@ -11,10 +11,17 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] Camera playerCamera;
     //개구리 프리팹
     [SerializeField] private Transform player;
+    //혀의 로프액션 클래스
+    [SerializeField] private RopeAction ropeAction;
+    
     private float cameraRotationSpeed = 3;
     private float mouseX, mouseY;
     private Rigidbody rb;
     private Vector3 cameraOffset = new Vector3(0, 2, -3);
+    private bool _isGround;
+    
+    public bool IsGround => _isGround;
+    
 
     private void Start()
     {
@@ -23,10 +30,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        PlayerMovement();
         CameraMovement();
+        PlayerMovement();
+        Debug.Log(_isGround);
     }
-
+    
     #region 플레이어 동작
     private void PlayerMovement()
     {
@@ -50,8 +58,25 @@ public class PlayerMove : MonoBehaviour
         Quaternion playerRotation = Quaternion.Euler(0,mouseX,0);
         transform.rotation = playerRotation;
         //플레이어 이동 + 회전
-        Vector3 newPosition = rb.position + movement * (moveSpeed * Time.deltaTime);
-        rb.MovePosition(newPosition);
+        if (ropeAction.IsGrappling && !_isGround)
+        {
+            rb.AddForce(movement, ForceMode.Acceleration);
+        }
+        else if(!ropeAction.IsGrappling && _isGround)
+        {
+            if (movement.magnitude >= 0.1f)
+            {
+                //테스트 이동 
+                /*Vector3 newPosition = rb.position + movement * (moveSpeed * Time.deltaTime);
+                rb.MovePosition(newPosition);*/
+                rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+            }
+            else
+            {
+                rb.velocity = new Vector3(rb.velocity.x*0.9f, rb.velocity.y*0.9f, rb.velocity.z*0.9f);
+            }
+        }
+        
     }
 
     private void CameraMovement()
@@ -63,6 +88,20 @@ public class PlayerMove : MonoBehaviour
         //카메라의 방향을 타겟의 포지션에 고정
         playerCamera.transform.LookAt(player.position);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isGround = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        _isGround = false;
+    }
+
     #endregion
     
     
