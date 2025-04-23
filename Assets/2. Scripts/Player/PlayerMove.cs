@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         {
             rb.AddForce(movement, ForceMode.Acceleration);
         }
-        else if(!ropeAction.IsGrappling && _isGround)
+        else if( _isGround)
         {
             if (movement.magnitude >= 0.1f)
             {
@@ -70,6 +70,8 @@ public class PlayerMove : MonoBehaviour
                 /*Vector3 newPosition = rb.position + movement * (moveSpeed * Time.deltaTime);
                 rb.MovePosition(newPosition);*/
                 rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+                //TODO: 빙판길 미끄러짐 구현!!!
+                //rb.AddForce(movement * moveSpeed, ForceMode.Acceleration);
             }
             else
             {

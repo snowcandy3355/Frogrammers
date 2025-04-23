@@ -71,20 +71,24 @@ public class RopeAction : MonoBehaviour
         //_aimedTarget.Normalize();
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out _raycastHit, 30f, mapObj))
         {
+            //라인 렌더러의 시작점
+            Vector3 from = playerCamera.transform.position;
+            //라인 렌더러의 끝점
+            Vector3 to = _raycastHit.point;
             _isGrappling = true;
             Debug.Log("Raycast Hit");
             _lineRenderer.positionCount = 2;
-            _lineRenderer.SetPosition(0, transform.position);
-            _lineRenderer.SetPosition(1, _raycastHit.point);
+            _lineRenderer.SetPosition(0, from);
+            _lineRenderer.SetPosition(1, to);
 
             _springJoint = _player.gameObject.AddComponent<SpringJoint>();
             _springJoint.autoConfigureConnectedAnchor = false;
             _springJoint.connectedAnchor = _raycastHit.point;
 
-            //줄의 시작점과 끝점 정의
+            //줄의 시작점과 끝점의 거리 정의
             float dis = Vector3.Distance(this.transform.position, _raycastHit.point);
-            _springJoint.maxDistance = dis;
             _springJoint.minDistance = 0;
+            _springJoint.maxDistance = dis;
             
             //통통 튀는 느낌 제어
             _springJoint.damper = 20f;
