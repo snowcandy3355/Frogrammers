@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     private float cameraRotationSpeed = 3;
     private float mouseX, mouseY;
     private Rigidbody rb;
-    private Vector3 cameraOffset = new Vector3(0, 2, -3);
+    private Vector3 cameraOffset = new Vector3(0, 2.5f, -4.5f);
     private bool _isGround;
     
     public bool IsGround => _isGround;
@@ -84,7 +84,7 @@ public class PlayerMove : MonoBehaviour
         //카메라 회전 계산
         Quaternion targetRotation = Quaternion.Euler(mouseY, mouseX, 0);
         //카메라 위치 선정
-        playerCamera.transform.position = player.position  + targetRotation * cameraOffset;
+        playerCamera.transform.position = player.position + Vector3.up * 1.5f  + targetRotation * cameraOffset;
         //카메라의 방향을 타겟의 포지션에 고정
         playerCamera.transform.LookAt(player.position);
     }

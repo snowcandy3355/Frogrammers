@@ -67,7 +67,9 @@ public class RopeAction : MonoBehaviour
     //RayCast 이 후 LineRenderer를 이용해 줄을 연결하는 메서드
     private void CheckRaycastAndShootRope()
     {
-        if (Physics.Raycast(transform.position, playerCamera.transform.forward, out _raycastHit, 15f, mapObj))
+        //Vector3 _aimedTarget = playerCamera.transform.forward + Vector3.up * 0.5f;
+        //_aimedTarget.Normalize();
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out _raycastHit, 15f, mapObj))
         {
             _isGrappling = true;
             Debug.Log("Raycast Hit");
