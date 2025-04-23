@@ -43,7 +43,7 @@ public class RopeAction : MonoBehaviour
         
         OnDrawFollowingRope();
         
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             BoostToEndOfRope();
         }
@@ -69,7 +69,7 @@ public class RopeAction : MonoBehaviour
     {
         //Vector3 _aimedTarget = playerCamera.transform.forward + Vector3.up * 0.5f;
         //_aimedTarget.Normalize();
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out _raycastHit, 15f, mapObj))
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out _raycastHit, 30f, mapObj))
         {
             _isGrappling = true;
             Debug.Log("Raycast Hit");
@@ -81,10 +81,10 @@ public class RopeAction : MonoBehaviour
             _springJoint.autoConfigureConnectedAnchor = false;
             _springJoint.connectedAnchor = _raycastHit.point;
 
-            //줄의 길이 정의
+            //줄의 시작점과 끝점 정의
             float dis = Vector3.Distance(this.transform.position, _raycastHit.point);
             _springJoint.maxDistance = dis;
-            _springJoint.minDistance = dis * 0.5f;
+            _springJoint.minDistance = 0;
             
             //통통 튀는 느낌 제어
             _springJoint.damper = 20f;
@@ -122,11 +122,11 @@ public class RopeAction : MonoBehaviour
     //우클릭 시 개구리가 혀의 연결점 끝으로 힘을 받아서 날아감
     private void BoostToEndOfRope()
     {
-        if (!_playerMove.IsGround && _isGrappling)
+        //!_playerMove.IsGround &&
+        if (_isGrappling)
         {
-
             Vector3 direction = (_raycastHit.point - _player.position).normalized;
-            _rigidbody.AddForce(direction * _hookSpeed, ForceMode.Impulse);
+            _rigidbody.AddForce(direction * _hookSpeed, ForceMode.Acceleration);
         }
     }
 

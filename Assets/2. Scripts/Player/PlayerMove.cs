@@ -86,7 +86,7 @@ public class PlayerMove : MonoBehaviour
         //카메라 위치 선정
         playerCamera.transform.position = player.position + Vector3.up * 1.5f  + targetRotation * cameraOffset;
         //카메라의 방향을 타겟의 포지션에 고정
-        playerCamera.transform.LookAt(player.position);
+        playerCamera.transform.LookAt(player.position + Vector3.up * 2.5f);
     }
 
     private void OnCollisionEnter(Collision other)
