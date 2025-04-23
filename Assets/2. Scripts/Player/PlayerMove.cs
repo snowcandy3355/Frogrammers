@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rb;
     private Vector3 cameraOffset = new Vector3(0, 2.5f, -4.5f);
     private bool _isGround;
+    private Material mat;
     
     public bool IsGround => _isGround;
     
@@ -26,7 +27,9 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        mat = GetComponent<Renderer>().material;
     }
+    
 
     private void Update()
     {
@@ -89,6 +92,13 @@ public class PlayerMove : MonoBehaviour
         playerCamera.transform.position = player.position + Vector3.up * 1.5f  + targetRotation * cameraOffset;
         //카메라의 방향을 타겟의 포지션에 고정
         playerCamera.transform.LookAt(player.position + Vector3.up * 2.5f);
+        mat.SetColor("_Color",
+            new Color(
+                mat.color.r,
+                mat.color.g,
+                mat.color.b,
+                //알파값을 조정해주는 코드 
+                (Math.Clamp(playerCamera.transform.localPosition.y, -2, 0) + 2) / 2));
     }
 
     private void OnCollisionEnter(Collision other)
