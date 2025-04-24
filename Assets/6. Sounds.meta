@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/6. Sounds.meta
 guid: e1993362e8a590949921b3fdf67e4f5e
+========
+guid: f54d1bd14bd3ca042bd867b519fee8cc
+>>>>>>>> main:Assets/TextMesh Pro.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

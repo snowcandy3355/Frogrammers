@@ -62,7 +62,7 @@ public class SoundManager : Singleton<SoundManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 현재 씬의 이름에 따라 bgmType을 업데이트
-        if (scene.name.Equals("Main"))
+        if (scene.name.Equals("Setting"))
         {
             bgmType = BGMType.Main;
         }
