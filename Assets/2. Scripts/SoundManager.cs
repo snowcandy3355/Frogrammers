@@ -29,13 +29,14 @@ public class SoundManager : Singleton<SoundManager>
     public SEType seType;
     public bool bgmOn;
     public bool seOn;
-    private void Start()
+    private void Awake()
     {
         /*bgmOn = true;
         seOn = true;*/
         // 사운드 상태 로컬저장
         bgmOn = Convert.ToBoolean(UserInformations.BgmState);
         seOn = Convert.ToBoolean(UserInformations.SeState);
+
         bgmAudioSource = GetComponent<AudioSource>();
         seAudioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
         bgmAudioSource.volume = UserInformations.BgmVolume;
@@ -61,7 +62,7 @@ public class SoundManager : Singleton<SoundManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 현재 씬의 이름에 따라 bgmType을 업데이트
-        if (scene.name.Equals("Main"))
+        if (scene.name.Equals("Setting"))
         {
             bgmType = BGMType.Main;
         }
@@ -100,6 +101,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void PlayBGM(BGMType type) // 타입 지정 재생 오버로딩
     {
+        Debug.Log(bgmOn.ToString());
         if (!bgmOn)
         {
             bgmAudioSource.Stop();
