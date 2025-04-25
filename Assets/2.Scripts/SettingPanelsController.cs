@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SettingPanelController : MonoBehaviour
+public class SettingPanelsController : MonoBehaviour
 {
     public GameObject[] settingPanels;
     // Start is called before the first frame update
