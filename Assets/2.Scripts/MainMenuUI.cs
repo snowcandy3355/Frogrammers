@@ -7,7 +7,7 @@ public class MainMenuUI : MonoBehaviour
 {
     public void OnStartGame()
     {
-        // 예시: GameScene으로 전환
+        SoundManager.Instance.PlaySE(SEType.Click);
         SceneManager.LoadScene("GameScene");
     }
 
