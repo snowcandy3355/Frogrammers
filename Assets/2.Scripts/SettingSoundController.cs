@@ -28,6 +28,7 @@ public class SettingSoundController : MonoBehaviour
     public void ToggleBGM(bool isOn)
     {
         SoundManager.Instance.bgmOn = isOn;
+        UserInformations.BgmState = isOn ? 1 : 0; // 설정값 정수로 저장
         if (isOn)
             SoundManager.Instance.PlayBGM();
         else
@@ -37,15 +38,18 @@ public class SettingSoundController : MonoBehaviour
     public void ToggleSE(bool isOn)
     {
         SoundManager.Instance.seOn = isOn;
+        UserInformations.SeState = isOn ? 1 : 0; // 저장
     }
 
     public void SetBGMVolume(float value)
     {
         SoundManager.Instance.bgmAudioSource.volume = value;
+        UserInformations.BgmVolume = value; // 저장
     }
 
     public void SetSEVolume(float value)
     {
         SoundManager.Instance.seAudioSource.volume = value;
+        UserInformations.SeVolume = value; // 저장
     }
 }
