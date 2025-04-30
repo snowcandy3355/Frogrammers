@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    
+    [SerializeField] private GameObject SettingPanel;
+
+    public void Start()
+    {
+        Instantiate(SettingPanel, SettingPanel.transform.parent);
+        SettingPanel.SetActive(false);
+    }
     public void OnStartGame()
     {
         SoundManager.Instance.PlaySE(SEType.Click);
@@ -14,6 +22,9 @@ public class MainMenuUI : MonoBehaviour
     public void OnOptions()
     {
         Debug.Log("옵션 버튼 클릭됨 (옵션 메뉴는 추후 구현)");
+        
+        //Setting Panel 추가
+        SettingPanel.SetActive(true);
     }
 
     public void OnQuit()
@@ -24,6 +35,8 @@ public class MainMenuUI : MonoBehaviour
         // 에디터에서 테스트용
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#else // 빌드파일 종료 추가
+        Application.Quit();
 #endif
     }
 }

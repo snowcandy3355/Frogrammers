@@ -21,7 +21,7 @@ public class DisplayController : MonoBehaviour
     {
         screenWidth = Screen.width;
         screenHeight = Screen.height;
-
+        
         WindowDropdownSet();
         windowSizeDropdownSet();
 
@@ -36,16 +36,22 @@ public class DisplayController : MonoBehaviour
             "창모드"
         };
         
-
+        
         windowDropdown.ClearOptions();
         windowDropdown.AddOptions(options);
-        windowDropdown.onValueChanged.AddListener(index => ChangeFullScreenMode((ScreenMode)index));
+        windowDropdown.value = UserInformations.DisplayState;
+        windowDropdown.onValueChanged.AddListener(index =>
+        {
+            UserInformations.DisplayState = index;
+            Debug.Log(UserInformations.DisplayState);
+            ChangeFullScreenMode((ScreenMode)index);
+        });
+
         
-        // 초기 설정
         switch (windowDropdown.value)
         {
             case 0:
-                Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+                Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.FullScreenWindow);
                 break;
             case 1:
                 Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.MaximizedWindow);
@@ -54,6 +60,7 @@ public class DisplayController : MonoBehaviour
                 Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.Windowed);
                 break;
         }
+
 
     }
     /// <summary>

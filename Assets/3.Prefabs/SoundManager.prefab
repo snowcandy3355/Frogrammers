@@ -43,19 +43,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4037413696848350309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a11a0d1963000a14091b0b1ba1e14c6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f9bca0b0a6c244a803fe41f07f8834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   persistent: 1
   bgmAudioSource: {fileID: 8176642841077350435}
   seAudioSource: {fileID: 2434103791228178031}
   bgmSounds:
-  - {fileID: 8300000, guid: f49425c52af313b44b4f07dfb6ae29bc, type: 3}
-  - {fileID: 8300000, guid: 2a5e5cb41bb1f6d44b940f084541e17a, type: 3}
-  - {fileID: 8300000, guid: 610e2d3309fb09d4fbb7999efee8b037, type: 3}
+  - {fileID: 8300000, guid: 33af9cddc42e7d648b81a520e7424107, type: 3}
+  - {fileID: 8300000, guid: 75ae1f2b9b5ab824aa0fe620742ec76a, type: 3}
+  - {fileID: 8300000, guid: c9c514fa8ad615641b30134ffbbda839, type: 3}
+  - {fileID: 0}
   seSounds:
-  - {fileID: 8300000, guid: 632b1c41f6a368540970d173af4f782f, type: 3}
-  - {fileID: 8300000, guid: 632b1c41f6a368540970d173af4f782f, type: 3}
+  - {fileID: 0}
   bgmType: 0
   seType: 0
   bgmOn: 0
