@@ -92,13 +92,18 @@ public class PlayerMove : MonoBehaviour
         playerCamera.transform.position = player.position + Vector3.up * 1.5f  + targetRotation * cameraOffset;
         //카메라의 방향을 타겟의 포지션에 고정
         playerCamera.transform.LookAt(player.position + Vector3.up * 2.5f);
+
+        float heightDiff = playerCamera.transform.position.y - (player.position.y + 1.5f);
+
+        float alpha = Mathf.Clamp01((heightDiff + 2f) / 2f);
         mat.SetColor("_Color",
             new Color(
                 mat.color.r,
                 mat.color.g,
                 mat.color.b,
                 //알파값을 조정해주는 코드 
-                (Math.Clamp(playerCamera.transform.localPosition.y, -2, 0) + 2) / 2));
+                alpha));
+        //(Math.Clamp(playerCamera.transform.position.y, -2, 0) + 2) / 2));
     }
 
     private void OnCollisionEnter(Collision other)
