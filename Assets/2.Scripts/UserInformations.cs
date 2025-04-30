@@ -2,13 +2,25 @@ using UnityEngine;
 
 public static class UserInformations
 {
+    private const string DISPLAY_STATE = "Display State";
     private const string BGM_STATE = "BGM State";
     private const string BGM_VOLUME = "BGM Volume";
     private const string SE_STATE = "BGM Selected";
     private const string SE_VOLUME = "SE Volume";
     
+
+    #region 디스플레이 세팅 로컬
+
+    public static int DisplayState
+    {
+        get
+        { return PlayerPrefs.GetInt(DISPLAY_STATE, 0);}
+        set
+        { PlayerPrefs.SetInt(DISPLAY_STATE, value); }
+    }
     
 
+    #endregion
     #region 사운드 세팅 로컬
 
     // 사운드 세팅 로컬에 저장
