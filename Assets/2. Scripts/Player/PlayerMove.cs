@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GroundType
+{
+    Ground,
+    IceGround
+}
 public class PlayerMove : MonoBehaviour
 {
     //개구리 이동속도
@@ -20,6 +25,8 @@ public class PlayerMove : MonoBehaviour
     private Vector3 cameraOffset = new Vector3(0, 2.5f, -4.5f);
     private bool _isGround;
     private Material mat;
+    private GroundType groundType = GroundType.Ground;
+    private int groundCheckCount = 0;
     
     public bool IsGround => _isGround;
     
@@ -35,7 +42,8 @@ public class PlayerMove : MonoBehaviour
     {
         CameraMovement();
         PlayerMovement();
-        Debug.Log(_isGround);
+        Debug.Log("지면확인"+_isGround);
+        Debug.Log(groundType);
     }
     
     #region 플레이어 동작
@@ -69,16 +77,36 @@ public class PlayerMove : MonoBehaviour
         {
             if (movement.magnitude >= 0.1f)
             {
+                Vector3 targetVelocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+
                 //테스트 이동 
-                /*Vector3 newPosition = rb.position + movement * (moveSpeed * Time.deltaTime);
-                rb.MovePosition(newPosition);*/
-                rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
-                //TODO: 빙판길 미끄러짐 구현!!!
-                //rb.AddForce(movement * moveSpeed, ForceMode.Acceleration);
+                //rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+                switch (groundType)
+                {
+                    case GroundType.Ground:
+                        rb.velocity = targetVelocity;
+                        break;
+                    case GroundType.IceGround:
+                        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, 2f * Time.deltaTime);
+                        break;
+                }
             }
             else
             {
-                rb.velocity = new Vector3(rb.velocity.x*0.9f, rb.velocity.y*0.9f, rb.velocity.z*0.9f);
+                //rb.velocity = new Vector3(rb.velocity.x*0.9f, rb.velocity.y*0.9f, rb.velocity.z*0.9f);
+                switch (groundType)
+                {
+                    case GroundType.Ground:
+                        rb.velocity = new Vector3(rb.velocity.x*0.5f, rb.velocity.y*0.5f, rb.velocity.z*0.5f);
+                        break;
+                    case GroundType.IceGround:
+                        rb.velocity = new Vector3(rb.velocity.x*0.98f, rb.velocity.y*0.98f, rb.velocity.z*0.98f);
+                        if (new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude < 0.0001f)
+                        {
+                            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                        }
+                        break;
+                }
             }
         }
         
@@ -108,15 +136,33 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        int layer = other.gameObject.layer;
+        
+        if (layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("IceGround"))
         {
+            groundCheckCount++;
             _isGround = true;
+            
+            if(layer == LayerMask.NameToLayer("Ground"))
+                groundType = GroundType.Ground;
+            else if(layer == LayerMask.NameToLayer("IceGround"))
+                groundType = GroundType.IceGround;
+            
         }
     }
 
     private void OnCollisionExit(Collision other)
     {
-        _isGround = false;
+        int layer = other.gameObject.layer;
+        if (layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("IceGround"))
+        {
+            groundCheckCount--;
+            if (groundCheckCount <= 0)
+            {
+                _isGround = false;
+                groundType = GroundType.Ground;
+            }
+        }
     }
 
     #endregion
