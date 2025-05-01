@@ -21,7 +21,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OnOptions()
     {
-        Debug.Log("옵션 버튼 클릭됨 (옵션 메뉴는 추후 구현)");
+        Debug.Log("세팅 버튼 클릭됨");
         
         //Setting Panel 추가
         SettingPanel.SetActive(true);
