@@ -21,8 +21,8 @@ public class IceFallingPlatform : MonoBehaviour
         originalPosition = transform.position;
         originalRotation = transform.rotation;
         
-        MeshCollider mc = GetComponent<MeshCollider>();
-        mc.convex = true; // 반드시 Convex여야 함
+        BoxCollider box = GetComponent<BoxCollider>();
+        box.isTrigger = false;
     }
 
     void OnCollisionEnter(Collision collision)
