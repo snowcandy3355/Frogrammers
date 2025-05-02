@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25125150
 MonoBehaviour:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f6f5c33511ba4499839c18a7898981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialPanel: {fileID: 0}
+  tutorialPanel: {fileID: 25125148}
   displayTime: 5
 --- !u!114 &25125151
 MonoBehaviour:
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Material: {fileID: 2100000, guid: 39c78cb310446da4b8b3f36de20cf637, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -920,6 +920,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &583477999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745370939265130029, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434103791228178031, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037413696848350309, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6ecb05bb0971e24eb6a7d37021c4ba5, type: 3}
 --- !u!1 &602262228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f6f5c33511ba4499839c18a7898981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialPanel: {fileID: 0}
+  tutorialPanel: {fileID: 25125148}
   displayTime: 5
 --- !u!4 &1196781037
 Transform:
@@ -2211,12 +2272,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC870\uC791\uBC95 \uC548\uB0B4\n- \uC67C\uCABD \uD074\uB9AD : \uD600
-    \uBC1C\uC0AC\n- \uC624\uB978\uCABD \uD074\uB9AD : \uB2F9\uAE30\uAE30\n- WASD
-    : \uBC18\uB3D9 \uC774\uB3D9"
+  m_text: 'How to Control
+
+
+    - Left Click: Tongue Shoot
+
+    - Right Click: Pull
+
+    -
+    WASD: Recoil Movement'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 398255b57be4d1642852e48c46b7dbad, type: 2}
-  m_sharedMaterial: {fileID: 540445836327947643, guid: 398255b57be4d1642852e48c46b7dbad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15362452f90e8a746b112ab860416417, type: 2}
+  m_sharedMaterial: {fileID: -8158225312205163174, guid: 15362452f90e8a746b112ab860416417, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2240,15 +2307,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2276,7 +2343,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -163.4049, y: -140.83862, z: -165.94019, w: -140.92249}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2532,3 +2599,4 @@ SceneRoots:
   - {fileID: 135074805}
   - {fileID: 1206055285}
   - {fileID: 1171217611}
+  - {fileID: 583477999}
