@@ -45,6 +45,6 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenOptions()
     {
-        Debug.Log("옵션창 열기 (추후 구현)");
+        Debug.Log("세팅 창 열기");
     }
 }

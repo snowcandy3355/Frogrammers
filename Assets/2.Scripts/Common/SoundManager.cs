@@ -38,7 +38,14 @@ public class SoundManager : Singleton<SoundManager>
         seOn = Convert.ToBoolean(UserInformations.SeState);
 
         bgmAudioSource = GetComponent<AudioSource>();
+        if (bgmAudioSource == null)
+            Debug.LogWarning("SoundManager: BGM AudioSource가 없습니다.");
+        
+        if (transform.childCount > 0)
         seAudioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
+        else
+            Debug.LogWarning("SoundManager: 자식 오브젝트 없음 (SE AudioSource 연결 실패)");
+        
         bgmAudioSource.volume = UserInformations.BgmVolume;
         seAudioSource.volume = UserInformations.SeVolume;
         
