@@ -27,6 +27,7 @@ public class MainMenuUI : MonoBehaviour
         
         //Setting Panel 추가
         SettingPanel.SetActive(true);
+        SettingPanel.GetComponentInChildren<SettingPanelsController>().Start();
     }
 
     public void OnQuit()

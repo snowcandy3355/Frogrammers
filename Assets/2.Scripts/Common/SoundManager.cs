@@ -34,10 +34,10 @@ public class SoundManager : Singleton<SoundManager>
         /*bgmOn = true;
         seOn = true;*/
         // 사운드 상태 로컬저장
-        //bgmOn = Convert.ToBoolean(UserInformations.BgmState);
-        //seOn = Convert.ToBoolean(UserInformations.SeState);
-        //bgmAudioSource.volume = UserInformations.BgmVolume;
-        //seAudioSource.volume = UserInformations.SeVolume;
+        bgmOn = Convert.ToBoolean(UserInformations.BgmState);
+        seOn = Convert.ToBoolean(UserInformations.SeState);
+        bgmAudioSource.volume = Convert.ToSingle(UserInformations.BgmVolume);
+        seAudioSource.volume = Convert.ToSingle(UserInformations.SeVolume);
         
         bgmAudioSource = GetComponent<AudioSource>();
         if (bgmAudioSource == null)
