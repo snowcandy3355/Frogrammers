@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//바닥 상태 구조체
 public enum GroundType
 {
     Ground,
