@@ -29,25 +29,26 @@ public class SoundManager : Singleton<SoundManager>
     public SEType seType;
     public bool bgmOn;
     public bool seOn;
-    private void Awake()
+    private void Start()
     {
         /*bgmOn = true;
         seOn = true;*/
         // 사운드 상태 로컬저장
-        bgmOn = Convert.ToBoolean(UserInformations.BgmState);
-        seOn = Convert.ToBoolean(UserInformations.SeState);
-
+        //bgmOn = Convert.ToBoolean(UserInformations.BgmState);
+        //seOn = Convert.ToBoolean(UserInformations.SeState);
+        //bgmAudioSource.volume = UserInformations.BgmVolume;
+        //seAudioSource.volume = UserInformations.SeVolume;
+        
         bgmAudioSource = GetComponent<AudioSource>();
         if (bgmAudioSource == null)
             Debug.LogWarning("SoundManager: BGM AudioSource가 없습니다.");
         
         if (transform.childCount > 0)
-        seAudioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
+            seAudioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
         else
             Debug.LogWarning("SoundManager: 자식 오브젝트 없음 (SE AudioSource 연결 실패)");
         
-        bgmAudioSource.volume = UserInformations.BgmVolume;
-        seAudioSource.volume = UserInformations.SeVolume;
+        
         
         /*bgmType = BGMType.Main;
         PlayBGM();*/
@@ -69,7 +70,7 @@ public class SoundManager : Singleton<SoundManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 현재 씬의 이름에 따라 bgmType을 업데이트
-        if (scene.name.Equals("Setting"))
+        if (scene.name.Equals("MainMenu"))
         {
             bgmType = BGMType.Main;
         }
@@ -77,7 +78,7 @@ public class SoundManager : Singleton<SoundManager>
         {
             bgmType = BGMType.Notation;
         }
-        else if (scene.name.Equals("Game"))
+        else if (scene.name.Equals("RopeTestScene"))
         {
             bgmType = BGMType.Game;
         }
@@ -108,7 +109,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void PlayBGM(BGMType type) // 타입 지정 재생 오버로딩
     {
-        Debug.Log(bgmOn.ToString());
+        //Debug.Log(bgmOn.ToString());
         if (!bgmOn)
         {
             bgmAudioSource.Stop();

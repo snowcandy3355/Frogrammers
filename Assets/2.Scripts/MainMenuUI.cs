@@ -10,13 +10,15 @@ public class MainMenuUI : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(SettingPanel, SettingPanel.transform.parent);
+        //Instantiate(SettingPanel, SettingPanel.transform.parent);
         SettingPanel.SetActive(false);
     }
     public void OnStartGame()
     {
         SoundManager.Instance.PlaySE(SEType.Click);
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("RopeTestScene");
+        Cursor.lockState = CursorLockMode.Locked;
+        //SceneManager.LoadScene("GameScene");
     }
 
     public void OnOptions()
