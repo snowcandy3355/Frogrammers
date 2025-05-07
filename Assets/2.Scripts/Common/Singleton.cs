@@ -33,7 +33,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
 
     private void Awake()
     {
-        Debug.Log("타입:"+this.GetType());
+        //Debug.Log("타입:"+this.GetType());
 
         if (_instance == null)
         {

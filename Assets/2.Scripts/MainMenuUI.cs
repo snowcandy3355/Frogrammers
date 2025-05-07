@@ -10,7 +10,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(SettingPanel, SettingPanel.transform.parent);
+        //Instantiate(SettingPanel, SettingPanel.transform.parent);
         SettingPanel.SetActive(false);
     }
     public void OnStartGame()
