@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="be0bc6cd-12e5-4430-8263-6100715b0fd2" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/BearObstacle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/BearObstacle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/IcePlatform.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/IcePlatform.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/MovingPlatform.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/MovingPlatform.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/TimedFallPlatform.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Gimmicks/TimedFallPlatform.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Frogrammers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frogrammers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scenes/SwampScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scenes/SwampScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Swamp/BearObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Swamp/BearObstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Blink/Art/Animals/Stylized/Bear/Bear_Animations/Bear_RunForward.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Blink/Art/Animals/Stylized/Bear/Bear_Animations/Bear_RunForward.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Blink/Art/Animals/Stylized/Bear/Bear_Prefabs/BearAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Blink/Art/Animals/Stylized/Bear/Bear_Prefabs/BearAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Blink/Art/Animals/Stylized/Bear/Bear_Prefabs/Bear_4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Blink/Art/Animals/Stylized/Bear/Bear_Prefabs/Bear_4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Lowpoly Fantasy Swamp/Materials/Hut_boards/M_Boards_1-7_Ladder.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Lowpoly Fantasy Swamp/Materials/Hut_boards/M_Boards_1-7_Ladder.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Stylized Rocks Pack/Materials/Rocks/Rocks_Brown_BIG.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/7.UnityAssets/Swamp/Stylized Rocks Pack/Materials/Rocks/Rocks_Brown_BIG.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +36,9 @@
     &quot;accountId&quot;: &quot;faaa4980-9ba8-4790-8b46-d858dbda919b&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2f488eb4164e4cc6be27a867ab1e541327800/1a/33edce47/Animator.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -46,6 +53,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/FROG-9-map-object&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -105,8 +116,13 @@
       <updated>1740543013497</updated>
       <workItem from="1746594132250" duration="18000" />
       <workItem from="1746594202403" duration="9000" />
+      <workItem from="1746688418100" duration="5606000" />
+      <workItem from="1746753665273" duration="4286000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
