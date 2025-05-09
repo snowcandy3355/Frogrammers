@@ -138,12 +138,12 @@ public class PlayerMove : MonoBehaviour
     {
         int layer = other.gameObject.layer;
         
-        if (layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("IceGround") || layer == LayerMask.NameToLayer("mapObj"))
+        if (layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("IceGround"))
         {
             groundCheckCount++;
             _isGround = true;
             
-            if(layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("mapObj"))
+            if(layer == LayerMask.NameToLayer("Ground"))
                 groundType = GroundType.Ground;
             else if(layer == LayerMask.NameToLayer("IceGround"))
                 groundType = GroundType.IceGround;
@@ -154,7 +154,7 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         int layer = other.gameObject.layer;
-        if (layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("IceGround") || layer == LayerMask.NameToLayer("mapObj"))
+        if (layer == LayerMask.NameToLayer("Ground") || layer == LayerMask.NameToLayer("IceGround"))
         {
             groundCheckCount--;
             if (groundCheckCount <= 0)
