@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6880419845074342893}
   - component: {fileID: 410410776758548249}
   - component: {fileID: 5563206417065006944}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water lily flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,9 +115,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8599767859629619046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water lily
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 947245957640315878}
   - component: {fileID: 4184318049813190888}
   - component: {fileID: 2154466523609642116}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water lily leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 1060091078928752287}
   - component: {fileID: 7344749513431753012}
   - component: {fileID: 131295486164881917}
-  m_Layer: 0
+  - component: {fileID: 7112470257216894508}
+  - component: {fileID: 4355451178334862146}
+  m_Layer: 3
   m_Name: Water lily leaf
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -106,3 +108,31 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5217457168857473040, guid: f151bcfe7079e5e4c9dbc31332216dcd, type: 3}
+--- !u!114 &7112470257216894508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6684715829617912323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6ed9d6e2156bc4ba2990a774e965da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveOffset: {x: 0, y: 20, z: 0}
+  moveSpeed: 4.5
+--- !u!114 &4355451178334862146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6684715829617912323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6ed9d6e2156bc4ba2990a774e965da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveOffset: {x: 0, y: 20, z: 0}
+  moveSpeed: 3

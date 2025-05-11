@@ -7,19 +7,20 @@ public class TimedFallPlatform : MonoBehaviour
     [Header("설정")] 
     [SerializeField] private float fallDelay = 3f; 
     
-    private bool triggered = false; 
+    private bool isTriggered = false;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!triggered && other.gameObject.CompareTag("Player"))
+        if (!isTriggered && collision.gameObject.CompareTag("Player"))
         {
-            triggered = true;
-            Invoke(nameof(Fall), fallDelay);
+            isTriggered = true;
+            StartCoroutine(FallAfterDelay());
         }
     }
 
-    private void Fall()
+    private IEnumerator FallAfterDelay()
     {
-        gameObject.SetActive(false); 
+        yield return new WaitForSeconds(fallDelay);
+        gameObject.SetActive(false);
     }
 }

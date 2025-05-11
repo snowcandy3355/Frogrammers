@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2799918505593243017}
   - component: {fileID: 330571839266841233}
   - component: {fileID: 6980813665001330002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Big_Rock_002_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7177556165592080130}
   - component: {fileID: 7072038845101837119}
   - component: {fileID: 9062183454626015395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_Platform_Big_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.945988, y: 142.96106, z: 185.90463}
-  m_LocalScale: {x: 3.2222, y: 3.2222, z: 3.2222}
+  m_LocalScale: {x: 3.2221997, y: 3.2222, z: 3.2221997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4367510112444044942}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 4367510112444044942}
   - component: {fileID: 230876413275230428}
   - component: {fileID: 3465300460550458306}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Big_Rock_002_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8012466583699756310}
   - component: {fileID: 90520870068741720}
   - component: {fileID: 1268574038989107806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Big_Rock_002_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

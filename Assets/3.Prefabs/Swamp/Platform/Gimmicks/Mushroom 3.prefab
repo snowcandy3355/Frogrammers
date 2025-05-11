@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 340414611661263106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0.004, y: 0.281, z: -0.0229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.6746568, g: 0.3944464, b: 0.754717, a: 1}
   m_Intensity: 0.4
-  m_Range: 1
+  m_Range: 5.30484
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -105,7 +105,8 @@ GameObject:
   - component: {fileID: 5499591684190255557}
   - component: {fileID: 6502427297479753615}
   - component: {fileID: 2581540000172566877}
-  - component: {fileID: 7722394788847523528}
+  - component: {fileID: 1561404219145571053}
+  - component: {fileID: 1938060024334762163}
   m_Layer: 0
   m_Name: Mushroom 3
   m_TagString: Untagged
@@ -180,8 +181,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7722394788847523528
-BoxCollider:
+--- !u!136 &1561404219145571053
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -198,9 +199,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.31972337, y: 0.34490848, z: 0.32164854}
-  m_Center: {x: 0.0064759776, y: 0.17535567, z: -0.0065414384}
+  serializedVersion: 2
+  m_Radius: 0.15962425
+  m_Height: 0.39906064
+  m_Direction: 1
+  m_Center: {x: 0.0064759827, y: 0.14, z: -0.0077413176}
+--- !u!114 &1938060024334762163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217959329166545245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b869f636177914438cf478bfc7eca1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceForce: 15
 --- !u!1 &7924793317778371561
 GameObject:
   m_ObjectHideFlags: 0

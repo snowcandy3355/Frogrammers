@@ -14,6 +14,7 @@ public class RopeAction : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float _hookSpeed;
     [SerializeField] private PlayerMove _playerMove;
+    [SerializeField] private Animator _animator;
     private RaycastHit _raycastHit;
     private LineRenderer _lineRenderer;
     private bool _isGrappling;
@@ -35,6 +36,8 @@ public class RopeAction : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CheckRaycastAndShootRope();
+            _animator.SetTrigger("Grappling");
+            
         }
         else if (Input.GetMouseButtonUp(0))
         {
