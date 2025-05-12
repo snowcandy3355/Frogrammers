@@ -12,8 +12,12 @@ public class RopeAction : MonoBehaviour
     [SerializeField] private Transform _player;
     //메인 카메라
     [SerializeField] private Camera playerCamera;
+    //크로스헤어 이미지
+    [SerializeField] private GameObject blackCrossHair;
+    [SerializeField] private GameObject redCrossHair;
     [SerializeField] private float _hookSpeed;
     [SerializeField] private PlayerMove _playerMove;
+    [SerializeField] private Animator _animator;
     private RaycastHit _raycastHit;
     private LineRenderer _lineRenderer;
     private bool _isGrappling;
@@ -35,6 +39,8 @@ public class RopeAction : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CheckRaycastAndShootRope();
+            _animator.SetTrigger("Grappling");
+            
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -98,6 +104,10 @@ public class RopeAction : MonoBehaviour
             _springJoint.massScale = 1f;
 
         }
+        else
+        {
+            StartCoroutine(ChangeCrossHair());
+        }
     }
 
     //연결되있던 LineRenderer 삭제하는 메서드
@@ -135,5 +145,13 @@ public class RopeAction : MonoBehaviour
     }
 
     #endregion
-    
+
+    IEnumerator ChangeCrossHair()
+    {
+        blackCrossHair.SetActive(false);
+        redCrossHair.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        blackCrossHair.SetActive(true);
+        redCrossHair.SetActive(false);
+    }
 }
