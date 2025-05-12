@@ -89,7 +89,7 @@ public class PlayerMove : MonoBehaviour
                         rb.velocity = targetVelocity;
                         break;
                     case GroundType.IceGround:
-                        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, 2f * Time.deltaTime);
+                        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, 10f *Time.deltaTime);
                         break;
                 }
             }
@@ -109,7 +109,7 @@ public class PlayerMove : MonoBehaviour
                         }
                         break;
                     case GroundType.IceGround:
-                        rb.velocity = new Vector3(rb.velocity.x * 0.98f, rb.velocity.y * 0.98f, rb.velocity.z * 0.98f);
+                        rb.velocity = new Vector3(rb.velocity.x * 0.995f, rb.velocity.y * 0.995f, rb.velocity.z * 0.995f);
                         if (horizontalVelocity.magnitude < 0.01f)
                         {
                             rb.velocity = new Vector3(0, rb.velocity.y, 0);
