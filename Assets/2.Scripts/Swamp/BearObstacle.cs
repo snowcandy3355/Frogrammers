@@ -10,7 +10,8 @@ public class BearObstacle : MonoBehaviour
     public float minSpawnDelay = 2f; 
     public float maxSpawnDelay = 5f; 
     public float moveSpeed = 5f;
-    public float knockbackForce = 10f;
+    public float knockbackForce = 20f;
+    
     
     void Start()
     {
@@ -46,6 +47,8 @@ public class BearObstacle : MonoBehaviour
         private float lifetime;
         private float knockback;
         private Animator animator;
+        private bool isAttacking = false;
+        private bool hasHitPlayer = false;
         
         public void Init(Vector3 dest, float moveSpeed, float knockbackForce)
         {
@@ -62,6 +65,8 @@ public class BearObstacle : MonoBehaviour
 
         private void Update()
         {
+            if (isAttacking) return;
+            
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, target) < 0.1f)
@@ -72,15 +77,19 @@ public class BearObstacle : MonoBehaviour
 
         private void OnCollisionEnter(Collision  other)
         {
+            if (hasHitPlayer) return;
+            
             if (other.gameObject.CompareTag("Player"))
             {
+                hasHitPlayer = true;
+                isAttacking = true; 
+                
                 Rigidbody rb = other.rigidbody;
                 if (rb != null)
                 {
                     Vector3 dir = (other.transform.position - transform.position);
                     dir.y = 0f;  
                     dir.Normalize();
-                    
                     rb.AddForce(dir * knockback, ForceMode.Impulse);
                 }
 
@@ -97,12 +106,12 @@ public class BearObstacle : MonoBehaviour
         private IEnumerator ResumeRunAfterAttack()
         {
             yield return new WaitForSeconds(1.0f);
+            isAttacking = false;
             if (animator != null)
             {
                 animator.SetBool("Run", true);
             }
         }
-
     }
 }
     
