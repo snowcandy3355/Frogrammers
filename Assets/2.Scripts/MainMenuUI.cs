@@ -10,21 +10,24 @@ public class MainMenuUI : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(SettingPanel, SettingPanel.transform.parent);
+        //Instantiate(SettingPanel, SettingPanel.transform.parent);
         SettingPanel.SetActive(false);
     }
     public void OnStartGame()
     {
         SoundManager.Instance.PlaySE(SEType.Click);
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("RopeTestScene");
+        Cursor.lockState = CursorLockMode.Locked;
+        //SceneManager.LoadScene("GameScene");
     }
 
     public void OnOptions()
     {
-        Debug.Log("옵션 버튼 클릭됨 (옵션 메뉴는 추후 구현)");
+        Debug.Log("세팅 버튼 클릭됨");
         
         //Setting Panel 추가
         SettingPanel.SetActive(true);
+        SettingPanel.GetComponentInChildren<SettingPanelsController>().Start();
     }
 
     public void OnQuit()

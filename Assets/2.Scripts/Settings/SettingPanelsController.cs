@@ -7,7 +7,7 @@ public class SettingPanelsController : MonoBehaviour
 {
     public GameObject[] settingPanels;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         foreach (var settingPanel in settingPanels)
         {
@@ -32,5 +32,10 @@ public class SettingPanelsController : MonoBehaviour
             settingPanel.SetActive(false);
         }
         settingPanels[index].SetActive(true);
+    }
+
+    public void CloseSettingPanel()
+    {
+        this.transform.parent.gameObject.SetActive(false);   
     }
 }

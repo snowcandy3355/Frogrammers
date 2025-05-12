@@ -18,6 +18,14 @@ public class SwitchController : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.bgmOn = Convert.ToBoolean(UserInformations.BgmState);
+        SoundManager.Instance.seOn = Convert.ToBoolean(UserInformations.SeState);
+        SoundManager.Instance.bgmAudioSource.volume = Convert.ToSingle(UserInformations.BgmVolume);
+        SoundManager.Instance.seAudioSource.volume = Convert.ToSingle(UserInformations.SeVolume);
+        /*Debug.Log("스위치-유저정보 bgm "+bgmOn);
+        Debug.Log("스위치-유저정보 se " +seOn);
+        Debug.Log("스위치-매니저 bgm "+SoundManager.Instance.bgmOn);
+        Debug.Log("스위치-매니저 se "+SoundManager.Instance.seOn);*/
         index = this.gameObject.transform.parent.parent.GetSiblingIndex(); // 0 : BGM 스위치 , 1 : SE 스위치
         volumeSlider = gameObject.transform.parent.parent.GetComponentInChildren<Slider>();
         volumeText = gameObject.transform.parent.parent.GetComponentsInChildren<TMP_Text>()[1];
@@ -39,6 +47,7 @@ public class SwitchController : MonoBehaviour
                 volumeSlider.value = SoundManager.Instance.bgmAudioSource.volume;
                 break;
             case 1:
+
                 if (SoundManager.Instance.seOn)
                 {
                     var currentX = swtichHandler.GetComponent<RectTransform>().anchoredPosition.x;
@@ -55,12 +64,14 @@ public class SwitchController : MonoBehaviour
                 volumeSlider.value = SoundManager.Instance.seAudioSource.volume;
                 break;
             default:
+                Debug.Log("스위치"+SoundManager.Instance.seOn.ToString());
+
                 break;
         }
 
-        
+
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -88,6 +99,7 @@ public class SwitchController : MonoBehaviour
         switch (index)
         {
             case 0:
+                Debug.Log("0스위치클릭"+SoundManager.Instance.seOn.ToString());
                 if (SoundManager.Instance.bgmOn)
                 {
                     SoundManager.Instance.bgmOn = false;
@@ -114,6 +126,8 @@ public class SwitchController : MonoBehaviour
                 SoundManager.Instance.PlayBGM(SoundManager.Instance.bgmType);
                 break;
             case 1:
+                Debug.Log("1스위치클릭"+SoundManager.Instance.seOn.ToString());
+
                 if (SoundManager.Instance.seOn)
                 {
                     SoundManager.Instance.seOn = false;
