@@ -14,8 +14,8 @@ public class MovingPlatform : MonoBehaviour
 
     private void Start()
     {
-        startPos = transform.position - moveOffset * 0.5f; //시작점
-        targetPos = transform.position + moveOffset * 0.5f; //도착점
+        startPos = transform.position - moveOffset * 0.5f; 
+        targetPos = transform.position + moveOffset * 0.5f; 
     }
 
     private void Update()

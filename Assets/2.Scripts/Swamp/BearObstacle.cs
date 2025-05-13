@@ -52,7 +52,7 @@ public class BearObstacle : MonoBehaviour
         bear.AddComponent<Bear>().Init(destination.position, moveSpeed, knockbackForce);
     }
     
-    //이동 + 충돌 처리
+    //이동 + 충돌 처리 (내부 클래스)
     private class Bear : MonoBehaviour
     {
         private Vector3 target;
@@ -112,7 +112,7 @@ public class BearObstacle : MonoBehaviour
                 if (rope != null && rope.IsGrappling)
                 {
                     rope.SendMessage("DeleteRope");
-                    rope.StartCoroutine(RopeCooldown(rope, 1f)); // 1초 동안 비활성화
+                    rope.StartCoroutine(RopeCooldown(rope, 1f));
                 }
 
                 IEnumerator RopeCooldown(RopeAction rope, float delay)
@@ -124,7 +124,7 @@ public class BearObstacle : MonoBehaviour
                 
                 IEnumerator TemporaryKnockback(Rigidbody rb, Vector3 knockbackVelocity)
                 {
-                    float duration = 0.5f; // 밀리는 시간
+                    float duration = 0.5f;
                     float timer = 0f;
 
                     while (timer < duration)
