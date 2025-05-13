@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8253951670843528188}
-  - component: {fileID: 4467425596007059096}
   m_Layer: 3
   m_Name: TimedPlatform 1
   m_TagString: Untagged
@@ -33,19 +32,6 @@ Transform:
   - {fileID: 8739541966547603320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4467425596007059096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2257195160149153033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e10b40c61dd4444fb3e9cbfeb66b6aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 3
 --- !u!1 &4713810385964917149
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +44,7 @@ GameObject:
   - component: {fileID: 6359611940560147265}
   - component: {fileID: 3723225572418903916}
   - component: {fileID: 8146970811590103038}
+  - component: {fileID: 6698931383047075283}
   m_Layer: 3
   m_Name: Water lily leaf
   m_TagString: Untagged
@@ -153,6 +140,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5217457168857473040, guid: f151bcfe7079e5e4c9dbc31332216dcd, type: 3}
+--- !u!114 &6698931383047075283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713810385964917149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e10b40c61dd4444fb3e9cbfeb66b6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 3
 --- !u!1 &5830330484302517260
 GameObject:
   m_ObjectHideFlags: 0

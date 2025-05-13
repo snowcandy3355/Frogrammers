@@ -29,7 +29,6 @@ public class PlayerMove : MonoBehaviour
     private GroundType groundType = GroundType.Ground;
     private int groundCheckCount = 0;
     private Animator _animator;
-    
     public bool IsGround => _isGround;
     
 
@@ -127,6 +126,7 @@ public class PlayerMove : MonoBehaviour
         {
             _animator.SetBool("Walking", false);
         }
+
     }
 
     private void CameraMovement()
@@ -154,7 +154,7 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         int layer = other.gameObject.layer;
-        
+
         if (layer == LayerMask.NameToLayer("Ground") ||
             layer == LayerMask.NameToLayer("IceGround") ||
             layer == LayerMask.NameToLayer("mapObj"))
@@ -173,6 +173,7 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         int layer = other.gameObject.layer;
+
         if (layer == LayerMask.NameToLayer("Ground") ||
             layer == LayerMask.NameToLayer("IceGround") ||
             layer == LayerMask.NameToLayer("mapObj"))
