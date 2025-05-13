@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b869f636177914438cf478bfc7eca1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 15
+  bounceForce: 20
 --- !u!1 &7924793317778371561
 GameObject:
   m_ObjectHideFlags: 0

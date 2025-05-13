@@ -7,7 +7,8 @@ using UnityEngine;
 public enum GroundType
 {
     Ground,
-    IceGround
+    IceGround,
+    Slide
 }
 public class PlayerMove : MonoBehaviour
 {
@@ -90,6 +91,9 @@ public class PlayerMove : MonoBehaviour
                     case GroundType.IceGround:
                         rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, 10f *Time.deltaTime);
                         break;
+                    case GroundType.Slide:
+                        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, 1f * Time.deltaTime); 
+                        break;
                 }
             }
             else
@@ -154,10 +158,16 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         int layer = other.gameObject.layer;
-
+        
+        if (layer == LayerMask.NameToLayer("RopeOnly"))
+        {
+            return;
+        }
+        
         if (layer == LayerMask.NameToLayer("Ground") ||
             layer == LayerMask.NameToLayer("IceGround") ||
-            layer == LayerMask.NameToLayer("mapObj"))
+            layer == LayerMask.NameToLayer("mapObj") ||
+            layer == LayerMask.NameToLayer("Slide"))
         {
             groundCheckCount++;
             _isGround = true;
@@ -166,6 +176,8 @@ public class PlayerMove : MonoBehaviour
                 groundType = GroundType.Ground;
             else if(layer == LayerMask.NameToLayer("IceGround"))
                 groundType = GroundType.IceGround;
+            else if (layer == LayerMask.NameToLayer("Slide"))
+                groundType = GroundType.Slide;
             
         }
     }
@@ -173,10 +185,16 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         int layer = other.gameObject.layer;
+        
+        if (layer == LayerMask.NameToLayer("RopeOnly"))
+        {
+            return;
+        }
 
         if (layer == LayerMask.NameToLayer("Ground") ||
             layer == LayerMask.NameToLayer("IceGround") ||
-            layer == LayerMask.NameToLayer("mapObj"))
+            layer == LayerMask.NameToLayer("mapObj") ||
+            layer == LayerMask.NameToLayer("Slide"))
         {
             groundCheckCount--;
             if (groundCheckCount <= 0)

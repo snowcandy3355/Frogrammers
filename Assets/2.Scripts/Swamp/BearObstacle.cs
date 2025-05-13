@@ -12,10 +12,23 @@ public class BearObstacle : MonoBehaviour
     public float moveSpeed = 5f;
     public float knockbackForce = 20f;
     
-    
-    void Start()
+    private Coroutine spawnCoroutine;
+
+    public void StartSpawning()
     {
-        StartCoroutine(SpawnBearRoutine());
+        if (spawnCoroutine == null)
+        {
+            spawnCoroutine = StartCoroutine(SpawnBearRoutine());
+        }
+    }
+    
+    public void StopSpawning()
+    {
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
+        }
     }
     
     IEnumerator SpawnBearRoutine()
@@ -88,10 +101,40 @@ public class BearObstacle : MonoBehaviour
                 if (rb != null)
                 {
                     Vector3 dir = (other.transform.position - transform.position);
-                    dir.y = 0f;  
+                    dir.y = 0f;
                     dir.Normalize();
-                    rb.AddForce(dir * knockback, ForceMode.Impulse);
+
+                    StartCoroutine(TemporaryKnockback(rb, dir * knockback));
                 }
+                
+                //로프 없애기
+                RopeAction rope = other.gameObject.GetComponentInChildren<RopeAction>();
+                if (rope != null && rope.IsGrappling)
+                {
+                    rope.SendMessage("DeleteRope");
+                    rope.StartCoroutine(RopeCooldown(rope, 1f)); // 1초 동안 비활성화
+                }
+
+                IEnumerator RopeCooldown(RopeAction rope, float delay)
+                {
+                    rope.enabled = false;
+                    yield return new WaitForSeconds(delay);
+                    rope.enabled = true;
+                }
+                
+                IEnumerator TemporaryKnockback(Rigidbody rb, Vector3 knockbackVelocity)
+                {
+                    float duration = 0.5f; // 밀리는 시간
+                    float timer = 0f;
+
+                    while (timer < duration)
+                    {
+                        rb.velocity = knockbackVelocity;
+                        timer += Time.deltaTime;
+                        yield return null;
+                    }
+                }
+
 
                 if (animator != null)
                 {
