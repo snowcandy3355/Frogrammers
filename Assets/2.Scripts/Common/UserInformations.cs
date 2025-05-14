@@ -3,6 +3,7 @@ using UnityEngine;
 public static class UserInformations
 {
     private const string DISPLAY_STATE = "Display State";
+    private const string DISPLAY_SIZE_STATE = "Display Size State";
     private const string BGM_STATE = "BGM State";
     private const string BGM_VOLUME = "BGM Volume";
     private const string SE_STATE = "BGM Selected";
@@ -17,6 +18,14 @@ public static class UserInformations
         { return PlayerPrefs.GetInt(DISPLAY_STATE, 0);}
         set
         { PlayerPrefs.SetInt(DISPLAY_STATE, value); }
+    }
+
+    public static int DisplaySizeState
+    {
+        get
+        { return PlayerPrefs.GetInt(DISPLAY_SIZE_STATE, 0);}
+        set
+        { PlayerPrefs.SetInt(DISPLAY_SIZE_STATE, value); }
     }
     
 
