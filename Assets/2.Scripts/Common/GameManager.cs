@@ -5,18 +5,43 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameState
+{
+    None,
+    Gameplay,
+}
 public class GameManager : Singleton<GameManager>
 {
-    
+    public GameState gameState = GameState.None;
     private GameObject displayController;
     private void Start()
     { 
+        gameState = GameState.None;
         SoundManager.Instance.bgmType = BGMType.Main;
         SoundManager.Instance.PlayBGM();
-        StartDisplaySetting(UserInformations.DisplayState);
+        StartDisplaySetting(UserInformations.DisplayState, UserInformations.DisplaySizeState);
     }
-    
-    
+
+    private void Update()
+    {
+        if (gameState == GameState.Gameplay)
+        {
+            //Cursor.lockState = CursorLockMode.Locked;
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+        else if (gameState == GameState.None)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
     private void OnApplicationQuit()
     {
         Debug.Log("OnApplicationQuit!!");
@@ -31,21 +56,46 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    void StartDisplaySetting(int index)
+    void StartDisplaySetting(int index, int index2)
     {
         int screenWidth = Screen.width;
         int screenHeight = Screen.height;
+        int screenWidthSize = Screen.width;
+        int screenHeightSize = Screen.height;
+        switch (index2)
+        {
+            case 0:
+                screenWidthSize = 640;
+                screenHeightSize = 480;
+                break;
+            case 1:
+                screenWidthSize = 800;
+                screenHeightSize = 600;
+                break;
+            case 2:
+                screenWidthSize = 1024;
+                screenHeightSize = 768;
+                break;
+            case 3:
+                screenWidthSize = 1920;
+                screenHeightSize = 1080;
+                break;
+            case 4:
+                screenWidthSize = 2560;
+                screenHeightSize = 1920;
+                break;
+
+        }
         switch (index)
         {
             case 0:
-                Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+                Screen.SetResolution(screenWidthSize, screenHeightSize, FullScreenMode.FullScreenWindow);
                 break;
             case 1:
-                Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.MaximizedWindow);
-                break;
-            case 2:
-                Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.Windowed);
+                Screen.SetResolution(screenWidthSize, screenHeightSize, FullScreenMode.Windowed);
                 break;
         }
+
+        
     }
 }
