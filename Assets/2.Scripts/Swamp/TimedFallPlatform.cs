@@ -6,21 +6,40 @@ public class TimedFallPlatform : MonoBehaviour
 {
     [Header("설정")] 
     [SerializeField] private float fallDelay = 3f; 
+    [SerializeField] private float respawnDelay = 5f;
     
     private bool isTriggered = false;
+    private float stayTimer = 0f;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if (!isTriggered && collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isTriggered = true;
-            StartCoroutine(FallAfterDelay());
+            stayTimer += Time.deltaTime;
+
+            if (stayTimer >= fallDelay)
+            {
+                StartCoroutine(DisableAndRespawn());
+                stayTimer = 0f;
+                isTriggered = false;
+            }
         }
     }
 
-    private IEnumerator FallAfterDelay()
+    private void OnCollisionExit(Collision collision)
     {
-        yield return new WaitForSeconds(fallDelay);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isTriggered = false;
+            stayTimer = 0f;
+        }
+    }
+
+    private IEnumerator DisableAndRespawn()
+    {
         gameObject.SetActive(false);
+        yield return new WaitForSeconds(respawnDelay);
+        gameObject.SetActive(true);
     }
 }
