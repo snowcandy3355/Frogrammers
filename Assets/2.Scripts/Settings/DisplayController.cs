@@ -13,7 +13,6 @@ public class DisplayController : MonoBehaviour
     public enum ScreenMode
     {
         FullScreenWindow,
-        WindowFull,
         Window,
     }
 
@@ -21,9 +20,8 @@ public class DisplayController : MonoBehaviour
     {
         screenWidth = Screen.width;
         screenHeight = Screen.height;
-        
         WindowDropdownSet();
-        windowSizeDropdownSet();
+        WindowSizeDropdownSet();
 
     }
 
@@ -32,7 +30,6 @@ public class DisplayController : MonoBehaviour
     {
         List<string> options = new List<string> {
             "전체화면",
-            "테두리 없는 창모드",
             "창모드"
         };
         
@@ -54,12 +51,10 @@ public class DisplayController : MonoBehaviour
                 Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.FullScreenWindow);
                 break;
             case 1:
-                Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.MaximizedWindow);
-                break;
-            case 2:
                 Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.Windowed);
                 break;
         }
+        
 
 
     }
@@ -74,9 +69,6 @@ public class DisplayController : MonoBehaviour
             case ScreenMode.FullScreenWindow:
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
                 break;
-            case ScreenMode.WindowFull:
-                Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
-                break;
             case ScreenMode.Window:
                 Screen.fullScreenMode = FullScreenMode.Windowed;
                 break;
@@ -86,23 +78,58 @@ public class DisplayController : MonoBehaviour
 
     #endregion
 
-    void windowSizeDropdownSet()
+    void WindowSizeDropdownSet()
     {
         List<(int,int)> displaySizes = new List<(int,int)>
         {
             (640,480),
             (800,600),
-            (1024,1280),
+            (1024,768),
             (1920,1080),
-            (1280,1280),
             (2560,1920),
             
         };
+        List<string> displaySizesString = new List<string>();
+        foreach ((int, int) displaySize in displaySizes)
+        {
+            displaySizesString.Add(displaySize.ToString());
+        }
+        
+
         windowSizeDropdown.ClearOptions();
-        //windowSizeDropdown.AddOptions();
-        //windowSizeDropdown.onValueChanged.AddListener(index => ChangeFullScreenMode((ScreenMode)index));
+        windowSizeDropdown.AddOptions(displaySizesString);
+        windowSizeDropdown.value = UserInformations.DisplaySizeState;
+        windowSizeDropdown.onValueChanged.AddListener(index =>
+        {
+            UserInformations.DisplaySizeState = index;
+            Debug.Log(UserInformations.DisplaySizeState);
+            ChangeWindowSize(index,displaySizes);
+        });
         
-        
+        switch (windowSizeDropdown.value)
+        {
+            case 0:
+                Screen.SetResolution(displaySizes[windowSizeDropdown.value].Item1, displaySizes[windowSizeDropdown.value].Item2, UserInformations.DisplayState==0? FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
+                break;
+            case 1:
+                Screen.SetResolution(displaySizes[windowSizeDropdown.value].Item1, displaySizes[windowSizeDropdown.value].Item2, UserInformations.DisplayState==0? FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
+                break;
+            case 2:
+                Screen.SetResolution(displaySizes[windowSizeDropdown.value].Item1, displaySizes[windowSizeDropdown.value].Item2, UserInformations.DisplayState==0? FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
+                break;
+            case 3:
+                Screen.SetResolution(displaySizes[windowSizeDropdown.value].Item1, displaySizes[windowSizeDropdown.value].Item2, UserInformations.DisplayState==0? FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
+                break;
+            case 4:
+                Screen.SetResolution(displaySizes[windowSizeDropdown.value].Item1, displaySizes[windowSizeDropdown.value].Item2, UserInformations.DisplayState==0? FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
+                break;
+            
+            
+        }
+    }
+    private void ChangeWindowSize(int index,List<(int,int)> displaySizes)
+    {
+        Screen.SetResolution(displaySizes[index].Item1, displaySizes[index].Item2, UserInformations.DisplayState==0? FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
     }
     
 }
