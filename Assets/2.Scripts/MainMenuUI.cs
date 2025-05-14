@@ -16,8 +16,8 @@ public class MainMenuUI : MonoBehaviour
     public void OnStartGame()
     {
         SoundManager.Instance.PlaySE(SEType.Click);
-        SceneManager.LoadScene("RopeTestScene");
-        Cursor.lockState = CursorLockMode.Locked;
+        GameManager.Instance.gameState = GameState.Gameplay;
+        SceneManager.LoadScene("Map");
         //SceneManager.LoadScene("GameScene");
     }
 
