@@ -15,11 +15,13 @@ public class GameClear : MonoBehaviour
     private GameObject clearPanel;
     [SerializeField]
     private GameObject clearText;
-    // Start is called before the first frame update
+    
+    private bool canClear = true;
     void Start()
     {
         //clearPanel = GameObject.Find("ClearPanel").gameObject;
         clearPanel.SetActive(false);
+        canClear = true;
         //clearText = GameObject.Find("ClearText").gameObject;
     }
 
@@ -31,11 +33,15 @@ public class GameClear : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!other.gameObject.CompareTag("ClearPoint")) return;
+        if (!other.gameObject.CompareTag("ClearPoint")||!canClear) return;
+        canClear = false;
         clearPanel.SetActive(true);
         canvasGroup.alpha = 0;
+        SoundManager.Instance.PlaySE(SEType.GameEnd);
         canvasGroup.DOFade(1f, 3f).OnComplete(() =>
         {
+            canClear = true;
+            GameManager.Instance.gameState = GameState.None;
             SceneManager.LoadScene("MainMenu");
         });
         Debug.Log(other.gameObject.tag);

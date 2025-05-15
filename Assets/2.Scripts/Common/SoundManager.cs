@@ -9,8 +9,6 @@ public enum BGMType
     None,
     Main,
     Game,
-    GameAI,
-    Notation
 }
 public enum SEType
 {
@@ -22,6 +20,7 @@ public enum SEType
 public class SoundManager : Singleton<SoundManager>
 {
     public AudioSource bgmAudioSource;
+    public AudioSource subBgmAudioSource;
     public AudioSource seAudioSource;
     public AudioClip[] bgmSounds;
     public AudioClip[] seSounds;
@@ -37,16 +36,17 @@ public class SoundManager : Singleton<SoundManager>
         bgmOn = Convert.ToBoolean(UserInformations.BgmState);
         seOn = Convert.ToBoolean(UserInformations.SeState);
         bgmAudioSource.volume = Convert.ToSingle(UserInformations.BgmVolume);
+        subBgmAudioSource.volume = Convert.ToSingle(UserInformations.BgmVolume);
         seAudioSource.volume = Convert.ToSingle(UserInformations.SeVolume);
         
-        bgmAudioSource = GetComponent<AudioSource>();
+        /*bgmAudioSource = GetComponent<AudioSource>();
         if (bgmAudioSource == null)
             Debug.LogWarning("SoundManager: BGM AudioSource가 없습니다.");
         
         if (transform.childCount > 0)
             seAudioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
         else
-            Debug.LogWarning("SoundManager: 자식 오브젝트 없음 (SE AudioSource 연결 실패)");
+            Debug.LogWarning("SoundManager: 자식 오브젝트 없음 (SE AudioSource 연결 실패)");*/
         
         
         
@@ -74,17 +74,10 @@ public class SoundManager : Singleton<SoundManager>
         {
             bgmType = BGMType.Main;
         }
-        else if (scene.name.Equals("Notation"))
-        {
-            bgmType = BGMType.Notation;
-        }
-        else if (scene.name.Equals("RopeTestScene"))
+
+        else if (scene.name.Equals("Map"))
         {
             bgmType = BGMType.Game;
-        }
-        else if (scene.name.Equals("AI Game"))
-        {
-            bgmType = BGMType.GameAI;
         }
         // 필요한 경우 다른 씬에 대한 분기도 추가
     
@@ -95,7 +88,7 @@ public class SoundManager : Singleton<SoundManager>
     
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&& GameManager.Instance.gameState!=GameState.Gameplay)
         {
             PlaySE(SEType.Click);
         }
@@ -113,6 +106,7 @@ public class SoundManager : Singleton<SoundManager>
         if (!bgmOn)
         {
             bgmAudioSource.Stop();
+            subBgmAudioSource.Stop();
             return;
         }
         switch (type)
@@ -121,22 +115,18 @@ public class SoundManager : Singleton<SoundManager>
                 bgmAudioSource.clip= bgmSounds[0];
                 bgmAudioSource.loop = true;
                 bgmAudioSource.Play();
+                subBgmAudioSource.clip= bgmSounds[1];
+                subBgmAudioSource.loop = true;
+                subBgmAudioSource.Play();
                 break;
 
             case BGMType.Game:
-                bgmAudioSource.clip = bgmSounds[1];
+                bgmAudioSource.clip = bgmSounds[2];
                 bgmAudioSource.loop = true;
                 bgmAudioSource.Play();
-                break;
-            case BGMType.GameAI:
-                bgmAudioSource.clip = bgmSounds[1];
-                bgmAudioSource.loop = true;
-                bgmAudioSource.Play();
-                break;
-            case BGMType.Notation:
-                bgmAudioSource.clip= bgmSounds[2];
-                bgmAudioSource.loop = true;
-                bgmAudioSource.Play();
+                subBgmAudioSource.clip= bgmSounds[4];
+                subBgmAudioSource.loop = true;
+                subBgmAudioSource.Play();
                 break;
             default:
                 break;
