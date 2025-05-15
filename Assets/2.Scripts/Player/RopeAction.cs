@@ -53,19 +53,6 @@ public class RopeAction : MonoBehaviour
         {
             BoostToEndOfRope();
         }
-        
-        //커서 띄우고 없애기
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
     }
 
     #region 혀 동작부
@@ -82,7 +69,6 @@ public class RopeAction : MonoBehaviour
             //라인 렌더러의 끝점
             Vector3 to = _raycastHit.point;
             _isGrappling = true;
-            Debug.Log("Raycast Hit");
             _lineRenderer.positionCount = 2;
             _lineRenderer.SetPosition(0, from);
             _lineRenderer.SetPosition(1, to);
