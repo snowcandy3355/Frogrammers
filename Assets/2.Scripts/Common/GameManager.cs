@@ -26,6 +26,11 @@ public class GameManager : Singleton<GameManager>
     {
         if (gameState == GameState.Gameplay)
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                gameState = GameState.None;
+                SceneManager.LoadScene("MainMenu");
+            }
             //Cursor.lockState = CursorLockMode.Locked;
             if (Input.GetKey(KeyCode.LeftAlt))
             {
