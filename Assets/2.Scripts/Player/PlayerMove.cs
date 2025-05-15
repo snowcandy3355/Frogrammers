@@ -47,9 +47,6 @@ public class PlayerMove : MonoBehaviour
     {
         CameraMovement();
         PlayerMovement();
-        Debug.Log("지면확인"+_isGround);
-        Debug.Log(groundType);
-        //Debug.Log(rb.velocity);
     }
     
     #region 플레이어 동작
