@@ -60,7 +60,6 @@ public class RopeAction : MonoBehaviour
     //RayCast 이 후 LineRenderer를 이용해 줄을 연결하는 메서드
     private void CheckRaycastAndShootRope()
     {
-        //Vector3 _aimedTarget = playerCamera.transform.forward + Vector3.up * 0.5f;
         //_aimedTarget.Normalize();
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out _raycastHit, 30f, mapObj))
         {
@@ -122,7 +121,6 @@ public class RopeAction : MonoBehaviour
     //우클릭 시 개구리가 혀의 연결점 끝으로 힘을 받아서 날아감
     private void BoostToEndOfRope()
     {
-        //!_playerMove.IsGround &&
         if (_isGrappling)
         {
             Vector3 direction = (_raycastHit.point - _player.position).normalized;

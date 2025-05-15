@@ -153,7 +153,6 @@ public class PlayerMove : MonoBehaviour
                 mat.color.b,
                 //알파값을 조정해주는 코드 
                 alpha));
-        //(Math.Clamp(playerCamera.transform.position.y, -2, 0) + 2) / 2));
     }
 
     private void OnCollisionEnter(Collision other)
