@@ -11,7 +11,7 @@ public class SoundController : MonoBehaviour
     [SerializeField]private AudioSource shootRopeSound;
     
     private float stepDelay = 0.5f;
-    private float stepTimer = 0f;
+    
     private GroundType _groundType;
     public AudioClip sandFootStep1;
     public AudioClip sandFootStep2;
@@ -22,20 +22,24 @@ public class SoundController : MonoBehaviour
     private void Update()
     {
         _groundType = _playerMove.groundType;
-        SoundContoller();
+        FireRopeSound();
+        if (_playerMove.IsWalking && _playerMove.IsGround)
+        {
+            StartCoroutine(FootStepSound());
+        }
     }
 
-    private void SoundContoller()
+    private void FireRopeSound()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             shootRopeSound.Play();
         }
-
-        if (_playerMove.IsWalking && _playerMove.IsGround)
-        {
+    }
+    private IEnumerator FootStepSound()
+    {
             AudioClip clip = null;
-            stepTimer -= Time.deltaTime;
+            
             switch (_groundType)
             {
                 case GroundType.Ground:
@@ -49,15 +53,10 @@ public class SoundController : MonoBehaviour
                     break;
                     
             }
-            if (stepTimer <= 0f)
+            if (clip != null && !walkSound.isPlaying)
             {
                 walkSound.PlayOneShot(clip);
-                stepTimer = stepDelay;
             }
-        }
-        else
-        {
-            stepTimer = 0f;
-        }
+            yield return new WaitForSeconds(stepDelay);
     }
 }
