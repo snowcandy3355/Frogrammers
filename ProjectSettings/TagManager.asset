@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Bear
+  - ClearPoint
   layers:
   - Default
   - TransparentFX

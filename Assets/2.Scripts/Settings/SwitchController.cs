@@ -21,6 +21,7 @@ public class SwitchController : MonoBehaviour
         SoundManager.Instance.bgmOn = Convert.ToBoolean(UserInformations.BgmState);
         SoundManager.Instance.seOn = Convert.ToBoolean(UserInformations.SeState);
         SoundManager.Instance.bgmAudioSource.volume = Convert.ToSingle(UserInformations.BgmVolume);
+        SoundManager.Instance.subBgmAudioSource.volume = Convert.ToSingle(UserInformations.BgmVolume);
         SoundManager.Instance.seAudioSource.volume = Convert.ToSingle(UserInformations.SeVolume);
         /*Debug.Log("스위치-유저정보 bgm "+bgmOn);
         Debug.Log("스위치-유저정보 se " +seOn);
@@ -80,6 +81,7 @@ public class SwitchController : MonoBehaviour
         {
             case 0:
                 SoundManager.Instance.bgmAudioSource.volume = volumeSlider.value;
+                SoundManager.Instance.subBgmAudioSource.volume = volumeSlider.value;
                 volumeText.text = (volumeSlider.value*100).ToString("0");
                 break;
             case 1:

@@ -15,7 +15,7 @@ public class MainMenuUI : MonoBehaviour
     }
     public void OnStartGame()
     {
-        SoundManager.Instance.PlaySE(SEType.Click);
+        SoundManager.Instance.PlaySE(SEType.GameStart);
         GameManager.Instance.gameState = GameState.Gameplay;
         SceneManager.LoadScene("Map");
         //SceneManager.LoadScene("GameScene");
