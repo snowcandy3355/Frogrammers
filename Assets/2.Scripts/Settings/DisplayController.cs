@@ -40,7 +40,7 @@ public class DisplayController : MonoBehaviour
         windowDropdown.onValueChanged.AddListener(index =>
         {
             UserInformations.DisplayState = index;
-            Debug.Log(UserInformations.DisplayState);
+            //Debug.Log(UserInformations.DisplayState);
             ChangeFullScreenMode((ScreenMode)index);
         });
 
@@ -102,7 +102,7 @@ public class DisplayController : MonoBehaviour
         windowSizeDropdown.onValueChanged.AddListener(index =>
         {
             UserInformations.DisplaySizeState = index;
-            Debug.Log(UserInformations.DisplaySizeState);
+            //Debug.Log(UserInformations.DisplaySizeState);
             ChangeWindowSize(index,displaySizes);
         });
         

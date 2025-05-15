@@ -49,7 +49,7 @@ public class GameManager : Singleton<GameManager>
 
     private void OnApplicationQuit()
     {
-        Debug.Log("OnApplicationQuit!!");
+        //Debug.Log("OnApplicationQuit!!");
         
         int bgmState = Convert.ToInt32(SoundManager.Instance.bgmOn);
         int seState = Convert.ToInt32(SoundManager.Instance.seOn);

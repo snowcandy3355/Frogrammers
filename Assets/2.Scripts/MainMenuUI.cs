@@ -23,7 +23,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OnOptions()
     {
-        Debug.Log("세팅 버튼 클릭됨");
+        //Debug.Log("세팅 버튼 클릭됨");
         
         //Setting Panel 추가
         SettingPanel.SetActive(true);
@@ -32,7 +32,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OnQuit()
     {
-        Debug.Log("게임 종료");
+        //Debug.Log("게임 종료");
         Application.Quit();
 
         // 에디터에서 테스트용
