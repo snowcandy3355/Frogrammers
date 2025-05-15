@@ -25,7 +25,7 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 # 용량큰 Asset파일
-/[Aa]ssets/7.MapAsset/MapAsset/
+#/[Aa]ssets/7.MapAsset/MapAsset/
 
 # Visual Studio cache directory
 .vs/
