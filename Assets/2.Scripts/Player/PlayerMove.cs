@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//바닥 상태 구조체
+//바닥 상태 열거형
 public enum GroundType
 {
     Ground,
     IceGround,
+    Mud,
     Slide
 }
 public class PlayerMove : MonoBehaviour
@@ -27,10 +28,11 @@ public class PlayerMove : MonoBehaviour
     private Vector3 cameraOffset = new Vector3(0, 2.5f, -4.5f);
     private bool _isGround;
     private Material mat;
-    private GroundType groundType = GroundType.Ground;
+    public GroundType groundType = GroundType.Ground;
     private int groundCheckCount = 0;
     private Animator _animator;
     public bool IsGround => _isGround;
+    public bool IsWalking { get; private set; }
     
 
     private void Start()
@@ -125,10 +127,12 @@ public class PlayerMove : MonoBehaviour
         if (moveHorizontal != 0 || moveVertical != 0)
         {
             _animator.SetBool("Walking",true);
+            IsWalking = true;
         }
         else
         {
             _animator.SetBool("Walking", false);
+            IsWalking = false;
         }
 
     }
@@ -178,6 +182,8 @@ public class PlayerMove : MonoBehaviour
                 groundType = GroundType.IceGround;
             else if (layer == LayerMask.NameToLayer("Slide"))
                 groundType = GroundType.Slide;
+            else if(layer == LayerMask.NameToLayer("Mud"))
+                groundType = GroundType.Mud;
             
         }
     }
