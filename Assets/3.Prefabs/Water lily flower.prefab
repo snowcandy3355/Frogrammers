@@ -4843,7 +4843,7 @@ GameObject:
   - component: {fileID: 4424644251841797044}
   - component: {fileID: 3652158151809038771}
   - component: {fileID: 4482804903197627520}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water lily flower
   m_TagString: ClearPoint
   m_Icon: {fileID: 0}

@@ -283,6 +283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water lily flower
       objectReference: {fileID: 0}
+    - target: {fileID: 6157432645810166058, guid: 252b9e4e3003e384fb4243f804f070b8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -683,6 +687,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1435901753941772355, guid: ca1aba620a972054186627dffe27df75, type: 3}
+      propertyPath: clearText
+      value: 
+      objectReference: {fileID: 277523552}
+    - target: {fileID: 1435901753941772355, guid: ca1aba620a972054186627dffe27df75, type: 3}
+      propertyPath: clearPanel
+      value: 
+      objectReference: {fileID: 672601603}
+    - target: {fileID: 1435901753941772355, guid: ca1aba620a972054186627dffe27df75, type: 3}
+      propertyPath: canvasGroup
+      value: 
+      objectReference: {fileID: 672601607}
     - target: {fileID: 2179947321486955050, guid: ca1aba620a972054186627dffe27df75, type: 3}
       propertyPath: m_Name
       value: Player
