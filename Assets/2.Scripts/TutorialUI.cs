@@ -10,7 +10,7 @@ public class TutorialUI : MonoBehaviour
     void Start()
     {
         if (tutorialPanel == null)
-            Debug.LogError("TutorialPanel is null!", this);
+            //Debug.LogError("TutorialPanel is null!", this);
         tutorialPanel.SetActive(true);
         Invoke("HideTutorial", displayTime);
     }
