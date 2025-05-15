@@ -1042,6 +1042,7 @@ MonoBehaviour:
   playerCamera: {fileID: 431615802}
   player: {fileID: 652069804}
   ropeAction: {fileID: 1468689048}
+  groundType: 0
 --- !u!54 &652069806
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1589,7 +1590,7 @@ GameObject:
   - component: {fileID: 1542209791}
   - component: {fileID: 1542209790}
   - component: {fileID: 1542209789}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Plane (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1603,7 +1604,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542209788}
-  m_Material: {fileID: 13400000, guid: 958230f064e195748a4e35d801218794, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2037,21 +2038,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 237472179268137533, guid: ca1aba620a972054186627dffe27df75, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2179947321486955050, guid: ca1aba620a972054186627dffe27df75, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3100347425740150596, guid: ca1aba620a972054186627dffe27df75, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6d5cf9e9f0269c2448dd8adc6b941c56, type: 2}
-    - target: {fileID: 3100347425740150596, guid: ca1aba620a972054186627dffe27df75, type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4708202844055152473, guid: ca1aba620a972054186627dffe27df75, type: 3}
       propertyPath: redCrossHair
