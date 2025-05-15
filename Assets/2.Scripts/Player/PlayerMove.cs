@@ -47,9 +47,6 @@ public class PlayerMove : MonoBehaviour
     {
         CameraMovement();
         PlayerMovement();
-        Debug.Log("지면확인"+_isGround);
-        Debug.Log(groundType);
-        //Debug.Log(rb.velocity);
     }
     
     #region 플레이어 동작
@@ -156,7 +153,6 @@ public class PlayerMove : MonoBehaviour
                 mat.color.b,
                 //알파값을 조정해주는 코드 
                 alpha));
-        //(Math.Clamp(playerCamera.transform.position.y, -2, 0) + 2) / 2));
     }
 
     private void OnCollisionEnter(Collision other)

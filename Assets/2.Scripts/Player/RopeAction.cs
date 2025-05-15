@@ -53,19 +53,6 @@ public class RopeAction : MonoBehaviour
         {
             BoostToEndOfRope();
         }
-        
-        //커서 띄우고 없애기
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
     }
 
     #region 혀 동작부
@@ -73,7 +60,6 @@ public class RopeAction : MonoBehaviour
     //RayCast 이 후 LineRenderer를 이용해 줄을 연결하는 메서드
     private void CheckRaycastAndShootRope()
     {
-        //Vector3 _aimedTarget = playerCamera.transform.forward + Vector3.up * 0.5f;
         //_aimedTarget.Normalize();
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out _raycastHit, 30f, mapObj))
         {
@@ -82,7 +68,6 @@ public class RopeAction : MonoBehaviour
             //라인 렌더러의 끝점
             Vector3 to = _raycastHit.point;
             _isGrappling = true;
-            Debug.Log("Raycast Hit");
             _lineRenderer.positionCount = 2;
             _lineRenderer.SetPosition(0, from);
             _lineRenderer.SetPosition(1, to);
@@ -136,7 +121,6 @@ public class RopeAction : MonoBehaviour
     //우클릭 시 개구리가 혀의 연결점 끝으로 힘을 받아서 날아감
     private void BoostToEndOfRope()
     {
-        //!_playerMove.IsGround &&
         if (_isGrappling)
         {
             Vector3 direction = (_raycastHit.point - _player.position).normalized;
