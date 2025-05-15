@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e86911132a7de4e9e1441d0b67d7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 7
   playerCamera: {fileID: 6099773038928695965}
   player: {fileID: 6473856894748936623}
   ropeAction: {fileID: 4708202844055152473}
